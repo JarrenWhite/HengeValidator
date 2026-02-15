@@ -30,7 +30,7 @@ jobs:
           pyinstaller --onefile --windowed main_tkinter.py
 
       - name: Upload Linux build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: linux-build
           path: dist/main_tkinter
@@ -58,7 +58,7 @@ jobs:
           pyinstaller --onefile --windowed main_tkinter.py
 
       - name: Upload Windows build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: windows-build
           path: dist/main_tkinter.exe

@@ -6,6 +6,9 @@ on:
       - main
   pull_request:
 
+permissions:
+    contents: write
+
 jobs:
   build-linux:
     runs-on: ubuntu-latest
@@ -28,12 +31,15 @@ jobs:
         run: |
           source .venv/bin/activate
           pyinstaller --onefile --windowed main_tkinter.py
+          mv dist/main_tkinter dist/main_validator-linux
 
-      - name: Upload Linux build artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: linux-build
-          path: dist/main_tkinter
+          tag_name: latest
+          name: Latest build
+          files: dist/main_validator-linux
+          make_latest: true
 
   build-windows:
     runs-on: windows-latest
@@ -56,9 +62,12 @@ jobs:
         run: |
           .venv\Scripts\activate
           pyinstaller --onefile --windowed main_tkinter.py
+          move dist\main_tkinter.exe dist\main_validator-windows.exe
 
-      - name: Upload Windows build artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: windows-build
-          path: dist/main_tkinter.exe
+          tag_name: latest
+          name: Latest build
+          files: dist/main_validator-windows.exe
+          make_latest: true

@@ -42,7 +42,7 @@ class Character:
         total_exp += self._attributes.get_exp_spent()
         total_exp += self._skills.get_exp_spent()
 
-        purchased_feats = self._feats - self._level
+        purchased_feats = self._feats - self._level - 1
         total_exp += purchased_feats * 4
 
         current_attunement = 4

@@ -26,16 +26,20 @@ def main():
     character = Character(attributes, skills, attunement, feats)
 
     # Return Calculated Values
-    print("====================== Details ======================")
-    print(f"Level: {character.get_level()}")
-    print(f"Spent exp: {character.get_spent_exp()}")
-    print(f"Focus Roll: {character.get_focus_roll()}")
-    print(f"River Limit: {character.get_river()}")
+    print("\n====================== Character Details ======================\n")
+
+    print(f"{'Level:':15} {character.get_level()}")
+    print(f"{'Spent EXP:':15} {character.get_spent_exp()}")
+    print(f"{'Focus Roll:':15} {character.get_focus_roll()}")
+    print(f"{'River Limit:':15} {character.get_river()}")
+
     light_levels = character.get_light()
-    print(f"Red: {light_levels[0]}")
-    print(f"Green: {light_levels[1]}")
-    print(f"Blue: {light_levels[2]}")
-    print(f"Gold: {light_levels[3]}")
+    print("\nLight Levels:")
+    colors = ['Red', 'Green', 'Blue', 'Gold']
+    for color, value in zip(colors, light_levels):
+        print(f"{color:10} {value:<5}")
+
+    print("\n===============================================================\n")
 
 
 if __name__ == "__main__":

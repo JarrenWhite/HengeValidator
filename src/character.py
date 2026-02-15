@@ -1,7 +1,7 @@
 from typing import List
 
-from skills import Skills
-from attributes import Attributes
+from src.skills import Skills
+from src.attributes import Attributes
 
 
 class Character:

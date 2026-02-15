@@ -62,4 +62,4 @@ class Character:
 
 
     def get_focus_roll(self) -> int:
-        return self._level + self._attunement
+        return self.get_level() + self._attunement

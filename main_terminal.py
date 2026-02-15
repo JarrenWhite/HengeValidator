@@ -16,8 +16,6 @@ def main():
     one_skills = int(input("Number of Lvl 1 skills:\n"))
     skills_list = [3] * three_skills + [2] * two_skills + [1] * one_skills
 
-    print(skills_list)
-
     skills = Skills(skills_list)
 
     # Get other details
@@ -26,6 +24,18 @@ def main():
 
     # Create Character
     character = Character(attributes, skills, attunement, feats)
+
+    # Return Calculated Values
+    print("====================== Details ======================")
+    print(f"Level: {character.get_level()}")
+    print(f"Spent exp: {character.get_spent_exp()}")
+    print(f"Focus Roll: {character.get_focus_roll()}")
+    print(f"River Limit: {character.get_river()}")
+    light_levels = character.get_light()
+    print(f"Red: {light_levels[0]}")
+    print(f"Green: {light_levels[1]}")
+    print(f"Blue: {light_levels[2]}")
+    print(f"Gold: {light_levels[3]}")
 
 
 if __name__ == "__main__":

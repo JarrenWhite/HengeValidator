@@ -27,9 +27,9 @@ class Attributes:
         total_costs = 0
 
         total_costs += self._determine_cost(2, sorted_attrs[0])
-        total_costs += self._determine_cost(2, sorted_attrs[2])
+        total_costs += self._determine_cost(2, sorted_attrs[1])
+        total_costs += self._determine_cost(1, sorted_attrs[2])
         total_costs += self._determine_cost(1, sorted_attrs[3])
-        total_costs += self._determine_cost(1, sorted_attrs[4])
 
         return total_costs
 
@@ -39,6 +39,7 @@ class Attributes:
         current = starting
 
         while current < final:
-            exp_cost += (current + 1) *4
+            current += 1
+            exp_cost += current *4
 
         return exp_cost

@@ -38,6 +38,7 @@ class Skills:
         current = starting
 
         while current < final:
-            exp_cost += (current + 1) *2
+            current += 1
+            exp_cost += current *2
 
         return exp_cost

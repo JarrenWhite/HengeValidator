@@ -1,3 +1,5 @@
+from typing import List
+
 
 class Attributes:
 
@@ -13,6 +15,10 @@ class Attributes:
         points = self._red + self._green + self._blue + self._gold
 
         return points
+
+
+    def get_light_levels(self, level: int) -> List[int]:
+        return [self._red + level, self._green + level, self._blue + level, self._gold + level]
 
 
     def get_exp_spent(self) -> int:

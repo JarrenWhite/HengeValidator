@@ -1,0 +1,64 @@
+name: Build Character GUI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install --upgrade pip
+          pip install pyinstaller
+
+      - name: Build Linux executable
+        run: |
+          source .venv/bin/activate
+          pyinstaller --onefile --windowed main_tkinter.py
+
+      - name: Upload Linux build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux-build
+          path: dist/main_tkinter
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m venv .venv
+          .venv\Scripts\activate
+          pip install --upgrade pip
+          pip install pyinstaller
+
+      - name: Build Windows executable
+        run: |
+          .venv\Scripts\activate
+          pyinstaller --onefile --windowed main_tkinter.py
+
+      - name: Upload Windows build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-build
+          path: dist/main_tkinter.exe

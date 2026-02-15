@@ -50,3 +50,7 @@ class Character:
             total_exp += (current_attunement + 1) *2
 
         return total_exp
+
+
+    def get_focus_roll(self) -> int:
+        return self._level + self._attunement

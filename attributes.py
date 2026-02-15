@@ -3,7 +3,6 @@ from typing import List
 
 class Attributes:
 
-
     def __init__(self, red: int, green: int, blue: int, gold: int):
         self._red = red
         self._green = green

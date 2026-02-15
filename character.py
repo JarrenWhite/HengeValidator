@@ -11,14 +11,12 @@ class Character:
             attributes: Attributes,
             skills: Skills,
             attunement: int,
-            feats: int,
-            purchased_feats: int
+            feats: int
         ):
         self._attributes = attributes
         self._skills = skills
         self._attunement = attunement
         self._feats = feats
-        self._purchased_feats = purchased_feats
 
         self._level = self._get_level()
 
@@ -36,3 +34,19 @@ class Character:
     def get_light(self) -> List[int]:
         return self._attributes.get_light_levels(self._get_level())
 
+
+    def get_spent_exp(self) -> int:
+
+        total_exp = 0
+
+        total_exp += self._attributes.get_exp_spent()
+        total_exp += self._skills.get_exp_spent()
+
+        purchased_feats = self._feats - self._level
+        total_exp += purchased_feats * 4
+
+        current_attunement = 4
+        while current_attunement < self._attunement:
+            total_exp += (current_attunement + 1) *2
+
+        return total_exp

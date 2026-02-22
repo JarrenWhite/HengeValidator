@@ -63,3 +63,7 @@ class Character:
 
     def get_focus_roll(self) -> int:
         return self.get_level() + self._attunement
+
+
+    def get_health(self) -> int:
+        return self._attributes.get_health()

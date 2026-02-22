@@ -32,6 +32,7 @@ def main():
     print(f"{'Spent EXP:':15} {character.get_spent_exp()}")
     print(f"{'Focus Roll:':15} {character.get_focus_roll()}")
     print(f"{'River Limit:':15} {character.get_river()}")
+    print(f"{'Health:':15} {character.get_health()}")
 
     light_levels = character.get_light()
     print("\nLight Levels:")

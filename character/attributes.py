@@ -43,3 +43,7 @@ class Attributes:
             exp_cost += current *4
 
         return exp_cost
+
+
+    def get_health(self) -> int:
+        return 15 + (2*self._red) + self._green + self._blue + self._gold

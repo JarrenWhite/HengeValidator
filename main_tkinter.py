@@ -76,6 +76,7 @@ class CharacterApp:
             self.output.insert(tk.END, f"{'Spent EXP:':15} {character.get_spent_exp()}\n")
             self.output.insert(tk.END, f"{'Focus Roll:':15} {character.get_focus_roll()}\n")
             self.output.insert(tk.END, f"{'River Limit:':15} {character.get_river()}\n\n")
+            self.output.insert(tk.END, f"{'Health:':15} {character.get_health()}\n\n")
 
             light_levels = character.get_light()
             colors = ['Red', 'Green', 'Blue', 'Gold']
